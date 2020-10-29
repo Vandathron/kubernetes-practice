@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: myweb-config
+data:
+    ENV: "PRODUCTION"
+    USER: "TOSIN"
+    PASSWORD: "1234"

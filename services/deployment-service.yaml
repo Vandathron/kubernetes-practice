@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: mydeployment-service
+    labels:
+        tier: FE
+spec:
+    type: NodePort
+    ports:
+        - port: 5002
+          targetPort: 8080
+          nodePort: 30009
+    selector:
+        app: mydeployment-web

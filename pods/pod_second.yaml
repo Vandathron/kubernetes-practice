@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-pod
+  namespace: default
+  labels:
+    name: kd-web
+    tier: frontend
+spec:
+  securityContext:
+      runAsUser: 1000
+  containers:
+    - name: mysimple-web-app
+      image: kodekloud/simple-webapp
+      envFrom:
+          - configMapRef:
+                name: myweb-config
+          - secretRef:
+                name: my-secret
+      resources:
+        requests:
+          memory: "1Gi"
+          cpu: 1
+        limits:
+          memory: "2Gi"
+          cpu: 2
+  serviceAccount: myservice-account

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+	name: h
+	labels:
+		name: my-app
+		type: load-balancer
+spec:
+	containers:
+		- name: nginx-container
+		  image: nginx		
